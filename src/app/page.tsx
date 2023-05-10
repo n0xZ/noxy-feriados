@@ -17,7 +17,9 @@ async function getNextHoliday() {
 	})
 	const holidaysResp: Holiday[] = await res.json()
 	const nextHoliday = holidaysResp.find(
-		(h) => new Date(h.date).getMonth() === actualDate.getMonth()
+		(h) =>
+			new Date(h.date).getMonth() === actualDate.getMonth() &&
+			new Date(h.date).getDay() > actualDate.getDay()
 	)
 
 	return nextHoliday
