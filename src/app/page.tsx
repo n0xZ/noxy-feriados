@@ -1,6 +1,6 @@
 import { Holiday } from '@/types'
 import { headers } from 'next/headers'
-export const getNextHoliday = async () => {
+const getNextHoliday = async () => {
 	const country = headers().get('x-vercel-ip-country')
 
 	const actualDate = new Date()
@@ -30,7 +30,7 @@ export default async function Home() {
 	console.log(holiday.country)
 	return (
 		<main className="container flex flex-col items-center justify-center h-screen max-w-4xl mx-auto space-y-3">
-			<h2>El próximo feriado es: {holiday?.nextHoliday?.localName}</h2>
+			<h2>El próximo feriado es: {holiday.nextHoliday?.localName}</h2>
 		</main>
 	)
 }
